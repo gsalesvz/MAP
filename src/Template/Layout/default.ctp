@@ -28,30 +28,47 @@ $session = $this->request->session();
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('standard.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <div class="logo"></div>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <div class="top-bar-section">
-            <ul>
-                <li class="name"><?= $this->Html->link('Home', ['controller' => 'home', 'action' => 'index']) ?></li>
-                <li class="name"><?= $this->Html->link('Tutorial', ['controller' => 'home', 'action' => 'index']) ?></li>
-                <li class="name"><?= $this->Html->link('Sobre', ['controller' => 'home', 'action' => 'index']) ?></li>
-                <li class="name"><?= $this->Html->link('Ajuda', ['controller' => 'home', 'action' => 'index']) ?></li>
-            </ul>
+    <div class="container">
+        <div class="principal">
+            <div class="logo"><div>LOGO MAP</div></div>
+            <nav class="menu-principal" role="navigation">
+                <ul>
+                    <li class="name"><?= $this->Html->link('Home', ['controller' => 'home', 'action' => 'index']) ?></li>
+                    <li class="name"><?= $this->Html->link('Tutorial', ['controller' => 'home', 'action' => 'index']) ?></li>
+                    <li class="name"><?= $this->Html->link('Sobre', ['controller' => 'home', 'action' => 'index']) ?></li>
+                    <li class="name"><?= $this->Html->link('Ajuda', ['controller' => 'home', 'action' => 'index']) ?></li>
+                </ul>
+            </nav>
+
+            <?= $this->Flash->render() ?>
+            <?= $this->fetch('content') ?>
+
+            <footer>
+            </footer>
         </div>
-    </nav>
-    <?= $this->Flash->render() ?>
-    <div class="container clearfix">
-        <?= $this->fetch('content') ?>
+
+        <div class="sidebar">
+            <div class="user-menu">
+                <h1>Perfil</h1>
+                <div class="foto"></div>
+                <nav role="navigation">
+                    <ul>
+                        <li><?= $this->Html->link('Nome', ['controller' => 'home', 'action' => 'index']) ?></li>
+                        <li><?= $this->Html->link('Caixa de entrada', ['controller' => 'home', 'action' => 'index']) ?></li>
+                        <li><?= $this->Html->link('Editar Perfil', ['controller' => 'home', 'action' => 'index']) ?></li>
+                        <li><?= $this->Html->link('Adicionar Arquivo', ['controller' => 'home', 'action' => 'index']) ?></li>
+                        <li><?= $this->Html->link('Logout', ['controller' => 'home', 'action' => 'index']) ?></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </div>
-    <footer>
-    </footer>
 </body>
 </html>

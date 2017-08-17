@@ -64,7 +64,7 @@ return [
      *   You should treat it as extremely sensitive data.
      */
     'Security' => [
-        'salt' => env('SECURITY_SALT', '74d4ce62ff26c2613316f8b36416f389b7bde11855aafc8faa7db12418f49e59'),
+        'salt' => env('SECURITY_SALT', 'MAPPG - SEDUC Equipe de Programadores'),
     ],
 
     /**
@@ -229,9 +229,9 @@ return [
              * the following line and set the port accordingly
              */
             //'port' => 'non_standard_port_number',
-            'username' => 'my_app',
-            'password' => 'secret',
-            'database' => 'my_app',
+            'username' => 'root',
+            'password' => '',
+            'database' => 'map',
             'encoding' => 'utf8',
             'timezone' => 'UTC',
             'flags' => [],

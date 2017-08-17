@@ -37,8 +37,8 @@ $(document).ready(function() {
         var classeNova = $(this).attr("class");
         $(this).addClass("selected");
 
-        $("ul[class*='" + classeAtual + "']").fadeOut(250, function() {
-            $("ul[class*='" + classeNova + "']").fadeIn(250);
+        $("div[class*='" + classeAtual + "']").fadeOut(250, function() {
+            $("div[class*='" + classeNova + "']").fadeIn(250);
         });
 
     });
