@@ -1,4 +1,5 @@
 <!-- File: src/Template/Home/index.ctp -->
+
 <div class="pesquisa"><input type="text" id="search" class="idle" /></div>
 <div class="conteudo">
     <h1>Explore</h1>
@@ -44,12 +45,11 @@
 <?php
 
 $this->append('script');
-echo $this->Html->script('jquery');
 echo $this->Html->script('home');
 $this->end();
 
-$this->append('css');
+/*$this->append('css');
 echo $this->Html->css('home');
-$this->end();
+$this->end();*/
 
 ?>

@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\I18n\Time;
 
 /**
  * Escolas Controller
@@ -53,15 +54,17 @@ class EscolasController extends AppController
         $escola = $this->Escolas->newEntity();
         if ($this->request->is('post')) {
             $escola = $this->Escolas->patchEntity($escola, $this->request->getData());
+            if (isset($escola->fundacao)) {
+                $escola->fundacao = Time::createFromFormat('d/m/Y', $escola->fundacao);
+            }
             if ($this->Escolas->save($escola)) {
-                $this->Flash->success(__('The escola has been saved.'));
+                $this->Flash->success(__('A escola foi salva.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The escola could not be saved. Please, try again.'));
+            $this->Flash->error(__('A escola não pôde ser salva. Por favor, tente novamente.'));
         }
-        $professores = $this->Escolas->Professores->find('list', ['limit' => 200]);
-        $this->set(compact('escola', 'professores'));
+        $this->set(compact('escola'));
         $this->set('_serialize', ['escola']);
     }
 
@@ -79,15 +82,17 @@ class EscolasController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $escola = $this->Escolas->patchEntity($escola, $this->request->getData());
+            if (isset($escola->fundacao)) {
+                $escola->fundacao = Time::createFromFormat('d/m/Y', $escola->fundacao);
+            }
             if ($this->Escolas->save($escola)) {
-                $this->Flash->success(__('The escola has been saved.'));
+                $this->Flash->success(__('A escola foi salva.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The escola could not be saved. Please, try again.'));
+            $this->Flash->error(__('A escola não pôde ser salva. Por favor, tente novamente.'));
         }
-        $professores = $this->Escolas->Professores->find('list', ['limit' => 200]);
-        $this->set(compact('escola', 'professores'));
+        $this->set(compact('escola'));
         $this->set('_serialize', ['escola']);
     }
 
@@ -103,9 +108,9 @@ class EscolasController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $escola = $this->Escolas->get($id);
         if ($this->Escolas->delete($escola)) {
-            $this->Flash->success(__('The escola has been deleted.'));
+            $this->Flash->success(__('A escola foi deletada.'));
         } else {
-            $this->Flash->error(__('The escola could not be deleted. Please, try again.'));
+            $this->Flash->error(__('A escola não pôde ser deletada. Por favor, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

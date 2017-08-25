@@ -2,13 +2,15 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\I18n\Time;
+use Cake\Utility\Security;
 
 /**
  * Professores Controller
  *
  * @property \App\Model\Table\ProfessoresTable $Professores
  *
- * @method \App\Model\Entity\Professore[] paginate($object = null, array $settings = [])
+ * @method \App\Model\Entity\Professor[] paginate($object = null, array $settings = [])
  */
 class ProfessoresController extends AppController
 {
@@ -20,27 +22,44 @@ class ProfessoresController extends AppController
      */
     public function index()
     {
+        // Busca todos os professores e faz a paginação
         $professores = $this->paginate($this->Professores);
 
-        $this->set(compact('professores'));
-        $this->set('_serialize', ['professores']);
+        // Busca todos os tipos de status, para poder exibir ao usuário
+        $status = $this->Professores->fetchStatus();
+
+        // Envia os dados para a View
+        $this->set(compact('professores', 'status'));
+        $this->set('_serialize', ['professores', 'status']);
     }
 
     /**
      * View method
      *
-     * @param string|null $id Professore id.
+     * @param string|null $id Professor id.
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
-        $professore = $this->Professores->get($id, [
-            'contain' => ['Escolas']
-        ]);
+        // Busca o professor e as escolas relacionadas ao professor
+        $professor = $this->Professores->get($id, ['contain' => ['Escolas']]);
 
-        $this->set('professore', $professore);
-        $this->set('_serialize', ['professore']);
+        // Busca o nome do status deste professor, especificamente
+        $status = $this->Professores->fetchStatusName($professor->status);
+
+        // Converte o tipo de dados de data do Cake para um tipo de fácil leitura para o usuário
+        if (isset($professor->nascimento)) {
+            $professor->nascimento = date('d/m/Y', strtotime($professor->nascimento));
+        }
+
+        if (isset($professor->iniciopg)) {
+            $professor->iniciopg = date('d/m/Y', strtotime($professor->iniciopg));
+        }
+
+        // Envia os dados para a View
+        $this->set(compact('professor','status'));
+        $this->set('_serialize', ['professor', 'status']);
     }
 
     /**
@@ -50,62 +69,104 @@ class ProfessoresController extends AppController
      */
     public function add()
     {
-        $professore = $this->Professores->newEntity();
+        $professor = $this->Professores->newEntity();
         if ($this->request->is('post')) {
-            $professore = $this->Professores->patchEntity($professore, $this->request->getData());
-            if ($this->Professores->save($professore)) {
-                $this->Flash->success(__('The professore has been saved.'));
+            $professor = $this->Professores->patchEntity($professor, $this->request->getData());
+            
+            // Checa se há alguma informação nos campos de nascimento e início na prefeitura e converte em tipo de dados do Cake
+            if (isset($professor->nascimento)) {
+                $professor->nascimento = Time::createFromFormat('d/m/Y', $professor->nascimento);
+            }
+
+            if (isset($professor->iniciopg)) {
+                $professor->iniciopg = Time::createFromFormat('d/m/Y', $professor->iniciopg);
+            }
+
+            // Aplica hash para a senha
+            $professor->senha = Security::hash($professor->senha, 'sha256');
+
+            if ($this->Professores->save($professor)) {
+                $this->Flash->success(__('O professor foi salvo.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The professore could not be saved. Please, try again.'));
+            $this->Flash->error(__('O professor não pôde ser salvo. Por favor, tente novamente.'));
         }
-        $escolas = $this->Professores->Escolas->find('list', ['limit' => 200]);
-        $this->set(compact('professore', 'escolas'));
-        $this->set('_serialize', ['professore']);
+
+        // Envia os dados para a View
+        $this->set('professor', $professor);
+        $this->set('_serialize', ['professor']);
     }
 
     /**
      * Edit method
      *
-     * @param string|null $id Professore id.
+     * @param string|null $id Professor id.
      * @return \Cake\Http\Response|null Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Network\Exception\NotFoundException When record not found.
      */
     public function edit($id = null)
     {
-        $professore = $this->Professores->get($id, [
-            'contain' => ['Escolas']
-        ]);
+        $professor = $this->Professores->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $professore = $this->Professores->patchEntity($professore, $this->request->getData());
-            if ($this->Professores->save($professore)) {
-                $this->Flash->success(__('The professore has been saved.'));
+            $professor = $this->Professores->patchEntity($professor, $this->request->getData());
+            
+            // Checa se há alguma informação nos campos de nascimento e início na prefeitura e converte em tipo de dados do Cake
+            if (isset($professor->nascimento)) {
+                $professor->nascimento = Time::createFromFormat('d/m/Y', $professor->nascimento);
+            }
+
+            if (isset($professor->iniciopg)) {
+                $professor->iniciopg = Time::createFromFormat('d/m/Y', $professor->iniciopg);
+            }
+
+            // Atualiza o campo modificado
+            $professor->modificado = Time::now();
+
+            if ($this->Professores->save($professor)) {
+                $this->Flash->success(__('O professor foi salvo.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The professore could not be saved. Please, try again.'));
+            $this->Flash->error(__('O professor não pôde ser salvo. Por favor, tente novamente.'));
         }
-        $escolas = $this->Professores->Escolas->find('list', ['limit' => 200]);
-        $this->set(compact('professore', 'escolas'));
-        $this->set('_serialize', ['professore']);
+        /*$escolas = $this->Professores->fetchEscolas();
+        foreach ($escolas as $escola) {
+            $options[$escola->id] = $escola->nome;
+        }*/
+
+        // Converte o tipo de dados de data do Cake para um tipo de fácil leitura para o usuário
+        if (isset($professor->nascimento)) {
+            $professor->nascimento = date('d/m/Y', strtotime($professor->nascimento));
+        }
+
+        if (isset($professor->iniciopg)) {
+            $professor->iniciopg = date('d/m/Y', strtotime($professor->iniciopg));
+        }
+
+        // Envia os dados para a View
+        $this->set(compact('professor'));
+        $this->set('_serialize', ['professor']);
     }
 
     /**
      * Delete method
      *
-     * @param string|null $id Professore id.
+     * @param string|null $id Professor id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
-        $professore = $this->Professores->get($id);
-        if ($this->Professores->delete($professore)) {
-            $this->Flash->success(__('The professore has been deleted.'));
+        $this->request->allowMethod(['post']);
+        $professor = $this->Professores->get($id);
+
+        // Ao invés de propriamente deletar o professor, aqui se muda o Status no registro
+        $professor->status = $this->Professores->fetchStatus(['status.status' => 'Inativo'])->first()->id;
+        if ($this->Professores->save($professor)) {
+            $this->Flash->success(__('O professor foi deletado.'));
         } else {
-            $this->Flash->error(__('The professore could not be deleted. Please, try again.'));
+            $this->Flash->error(__('O professor não pôde ser deletado. Por favor, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

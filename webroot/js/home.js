@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-$(document).ready(function() {
+ $(document).ready(function() {
     var pesquisaDefault = "Pesquise...";
     var delayPesquisa;
     
@@ -30,16 +30,17 @@ $(document).ready(function() {
     });
     
     $("nav.explore ul li").click(function() {
-        var classeAtual = $("nav.explore ul li.selected").attr("class");
-        classeAtual = classeAtual.replace("selected", "").trim();
+        var classeAtual = $("nav.explore ul li.selected").attr("class").replace("selected", "").trim();
+        var classeNova = $(this).attr("class").replace("selected", "").trim();
+        
+        if (classeNova == classeAtual)
+            return false;
 
         $("nav.explore ul li").removeClass("selected");
-        var classeNova = $(this).attr("class");
         $(this).addClass("selected");
 
         $("div[class*='" + classeAtual + "']").fadeOut(250, function() {
             $("div[class*='" + classeNova + "']").fadeIn(250);
         });
-
     });
 });

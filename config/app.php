@@ -233,7 +233,7 @@ return [
             'password' => '',
             'database' => 'map',
             'encoding' => 'utf8',
-            'timezone' => 'UTC',
+            'timezone' => '',
             'flags' => [],
             'cacheMetadata' => true,
             'log' => false,

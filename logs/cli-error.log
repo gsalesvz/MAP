@@ -1,0 +1,18 @@
+2017-08-17 18:15:33 Warning: Warning (512): Association property name "escola" clashes with field of same name of table "professores_escolas". You should explicitly specify the "propertyName" option. in [C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Association.php, line 721]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 153
+Cake\ORM\Association::getProperty() - CORE\src\ORM\Association.php, line 721
+Bake\Utility\Model\AssociationFilter::filterAssociations() - ROOT\vendor\cakephp\bake\src\Utility\Model\AssociationFilter.php, line 96
+Bake\Shell\Task\TemplateTask::_filteredAssociations() - ROOT\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php, line 480
+Bake\Shell\Task\TemplateTask::_loadController() - ROOT\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php, line 300
+Bake\Shell\Task\TemplateTask::main() - ROOT\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php, line 148
+Bake\Shell\Task\TemplateTask::all() - ROOT\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php, line 259
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 458
+Cake\Console\Shell::runCommand() - CORE\src\Console\Shell.php, line 465
+Cake\Console\ShellDispatcher::_dispatch() - CORE\src\Console\ShellDispatcher.php, line 230
+Cake\Console\ShellDispatcher::dispatch() - CORE\src\Console\ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE\src\Console\ShellDispatcher.php, line 128
+[main] - ROOT\bin\cake.php, line 34
+
+
+

@@ -72,23 +72,17 @@ class EscolasTable extends Table
             ->allowEmpty('bairro');
 
         $validator
-            ->dateTime('fundacao')
+            ->date('fundacao', ['format' => 'dmy'])
             ->allowEmpty('fundacao');
 
         $validator
-            ->dateTime('criado')
-            ->requirePresence('criado', 'create')
-            ->notEmpty('criado');
+            ->dateTime('criado');
 
         $validator
-            ->dateTime('modificado')
-            ->requirePresence('modificado', 'create')
-            ->notEmpty('modificado');
+            ->dateTime('modificado');
 
         $validator
-            ->integer('status')
-            ->requirePresence('status', 'create')
-            ->notEmpty('status');
+            ->integer('status');
 
         return $validator;
     }

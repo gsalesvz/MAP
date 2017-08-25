@@ -36,11 +36,17 @@ class ProfessoresTable extends Table
         $this->setDisplayField('rf');
         $this->setPrimaryKey('rf');
 
+        // Estabelece o relacionamento n para n com a tabela Escolas
         $this->belongsToMany('Escolas', [
-            'foreignKey' => 'professore_id',
-            'targetForeignKey' => 'escola_id',
+            'foreignKey' => 'professor',
+            'targetForeignKey' => 'escola',
             'joinTable' => 'professores_escolas'
-        ]);
+            ]);
+
+        // Estabelece o relacionamento 1 para n com a tabela Status
+        $this->hasMany('Status', [
+            'primaryKey' => 'id',
+            'propertyName' => 'id']);
     }
 
     /**
@@ -52,65 +58,86 @@ class ProfessoresTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->integer('rf')
-            ->allowEmpty('rf', 'create');
+        ->integer('rf')
+        ->notEmpty('rf');
 
         $validator
-            ->requirePresence('senha', 'create')
-            ->notEmpty('senha');
+        ->requirePresence('senha', 'create')
+        ->notEmpty('senha')
+        ->lengthBetween('senha', ['6', '20'], 'A senha deve ter entre 6 e 20 caracteres!');
 
         $validator
-            ->requirePresence('nome', 'create')
-            ->notEmpty('nome');
+        ->requirePresence('confirme', 'create')
+        ->notEmpty('confirme')
+        ->sameAs('confirme', 'senha', 'As senhas não estão iguais!');
 
         $validator
-            ->requirePresence('sexo', 'create')
-            ->notEmpty('sexo');
+        ->requirePresence('nome', 'create')
+        ->notEmpty('nome');
 
         $validator
-            ->dateTime('iniciopg')
-            ->allowEmpty('iniciopg');
+        ->requirePresence('sexo', 'create')
+        ->notEmpty('sexo');
 
         $validator
-            ->dateTime('nascimento')
-            ->allowEmpty('nascimento');
+        ->date('iniciopg', ['format' => 'dmy'])
+        ->allowEmpty('iniciopg');
 
         $validator
-            ->allowEmpty('telefone');
+        ->date('nascimento', ['format' => 'dmy'])
+        ->allowEmpty('nascimento');
 
         $validator
-            ->allowEmpty('endereco');
+        ->allowEmpty('telefone');
 
         $validator
-            ->allowEmpty('numero');
+        ->allowEmpty('endereco');
 
         $validator
-            ->allowEmpty('complemento');
+        ->allowEmpty('numero');
 
         $validator
-            ->allowEmpty('bairro');
+        ->allowEmpty('complemento');
 
         $validator
-            ->allowEmpty('cidade');
+        ->allowEmpty('bairro');
 
         $validator
-            ->allowEmpty('estado');
+        ->allowEmpty('cidade');
 
         $validator
-            ->dateTime('criado')
-            ->requirePresence('criado', 'create')
-            ->notEmpty('criado');
+        ->allowEmpty('estado');
 
         $validator
-            ->dateTime('modificado')
-            ->requirePresence('modificado', 'create')
-            ->notEmpty('modificado');
+        ->dateTime('criado');
 
         $validator
-            ->integer('status')
-            ->requirePresence('status', 'create')
-            ->notEmpty('status');
+        ->dateTime('modificado');
+
+        $validator
+        ->integer('status');
 
         return $validator;
+    }
+
+    // Método para buscar dados completos das escolas dentro do controller Professores
+    public function fetchEscolas($conditions = null) {
+        if (!isset($conditions))
+            return $this->Escolas->find('all');
+        else
+            return $this->Escolas->find('all')->where($conditions);
+    }
+
+    // Método para buscar dados completos dos status dentro do controller Professores
+    public function fetchStatus($conditions = null) {
+        if (!isset($conditions))
+            return $this->Status->find('all');
+        else
+            return $this->Status->find('all')->where($conditions);
+    }
+
+    // Método simples para buscar o nome do status, de acordo com o ID
+    public function fetchStatusName($idStatus) {
+        return $this->Status->get($idStatus)->status;
     }
 }

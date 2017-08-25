@@ -63,7 +63,7 @@ class Date extends DateTimeImmutable implements ChronosInterface
      *
      * @var string
      */
-    protected static $toStringFormat = 'Y-m-d';
+    protected static $toStringFormat = 'd-m-Y';
 
     /**
      * Create a new Immutable Date instance.
@@ -80,7 +80,7 @@ class Date extends DateTimeImmutable implements ChronosInterface
      */
     public function __construct($time = 'now')
     {
-        $tz = new DateTimeZone('UTC');
+        $tz = new DateTimeZone('America/Sao_Paulo');
         if (static::$testNow === null) {
             $time = $this->stripTime($time);
 
@@ -107,7 +107,7 @@ class Date extends DateTimeImmutable implements ChronosInterface
             $testInstance = $testInstance->setTimezone($tz === null ? date_default_timezone_get() : $tz);
         }
 
-        $time = $testInstance->format('Y-m-d 00:00:00');
+        $time = $testInstance->format('d-m-Y 00:00:00');
         parent::__construct($time, $tz);
     }
 
@@ -129,7 +129,7 @@ class Date extends DateTimeImmutable implements ChronosInterface
     public function __debugInfo()
     {
         $properties = [
-            'date' => $this->format('Y-m-d'),
+            'date' => $this->format('d-m-Y'),
             'hasFixedNow' => isset(self::$testNow)
         ];
 
