@@ -20,7 +20,6 @@
                 <tr>
                     <th scope="col"><?= $this->Paginator->sort('rf') ?></th>
                     <th scope="col"><?= $this->Paginator->sort('nome') ?></th>
-                    <th scope="col"><?= $this->Paginator->sort('status') ?></th>
                     <th scope="col" class="actions"><?= __('Ações') ?></th>
                 </tr>
             </thead>
@@ -29,7 +28,6 @@
                 <tr>
                     <td><?= h($professor->rf) ?></td>
                     <td><?= h($professor->nome) ?></td>
-                    <td><?php foreach ($status as $statu) { if ($statu->id == $professor->status) {echo $statu->status;} } ?></td>
                     <td>
                         <?= $this->Html->link(__('Visualizar'), ['action' => 'view', $professor->rf]) ?>
                         <?= $this->Html->link(__('Editar'), ['action' => 'edit', $professor->rf]) ?>

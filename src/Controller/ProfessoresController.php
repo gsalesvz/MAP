@@ -22,11 +22,11 @@ class ProfessoresController extends AppController
      */
     public function index()
     {
-        // Busca todos os professores e faz a paginação
-        $professores = $this->paginate($this->Professores);
+        // Busca o id do status inativo, para poder restringir professores a serem exibidos
+        $statusInativo = $this->Professores->fetchStatus(['status' => 'Inativo'])->first()->id;
 
-        // Busca todos os tipos de status, para poder exibir ao usuário
-        $status = $this->Professores->fetchStatus();
+        // Busca todos os professores que não estão inativos, e faz a paginação
+        $professores = $this->paginate($this->Professores->find('all')->where(['status !=' => $statusInativo]));
 
         // Envia os dados para a View
         $this->set(compact('professores', 'status'));
@@ -162,7 +162,7 @@ class ProfessoresController extends AppController
         $professor = $this->Professores->get($id);
 
         // Ao invés de propriamente deletar o professor, aqui se muda o Status no registro
-        $professor->status = $this->Professores->fetchStatus(['status.status' => 'Inativo'])->first()->id;
+        $professor->status = $this->Professores->fetchStatus(['status' => 'Inativo'])->first()->id;
         if ($this->Professores->save($professor)) {
             $this->Flash->success(__('O professor foi deletado.'));
         } else {

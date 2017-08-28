@@ -17,7 +17,7 @@
         </ul>
     </nav>
     <div class="professores">
-        <h3><?= h($professor->nome) ?></h3>
+        <h3>Professor</h3>
         <table>
             <tr>
                 <th scope="row"><?= __('Registro Funcional') ?></th>
@@ -86,13 +86,12 @@
                         <tr>
                             <td><?= h($escolas->nome) ?></td>
                             <td class="actions">
-                                <?= $this->Html->link(__('Visualizar'), ['controller' => 'Escolas', 'action' => 'view', $escolas->id]) ?>
-                                <?= $this->Html->link(__('Editar'), ['controller' => 'Escolas', 'action' => 'edit', $escolas->id]) ?>
                                 <?= $this->Form->postLink(__('Deletar'), ['controller' => 'Escolas', 'action' => 'delete', $escolas->id], ['confirm' => __('Tem certeza de que quer deletar # {0}?', $escolas->nome)]) ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                 </table>
+                <?= $this->Html->link(__('Adicionar escola ao professor'), ['controller' => 'ProfessoresEscolas', 'action' => 'add', $professor->rf]) ?>
             <?php endif; ?>
         </div>
     </div>

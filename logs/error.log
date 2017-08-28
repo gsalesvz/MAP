@@ -7996,3 +7996,418 @@ Stack Trace:
 #35 {main}
 
 
+2017-08-25 09:39:22 Error: [ParseError] syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ',' or ')' in C:\xampp\htdocs\map\src\Template\Professores\index.ctp on line 28
+Request URL: /professores
+Stack Trace:
+#0 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\View\View.php(986): Cake\View\View->_evaluate('C:\\xampp\\htdocs...', Array)
+#1 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\View\View.php(610): Cake\View\View->_render('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Controller\Controller.php(623): Cake\View\View->render(NULL, NULL)
+#3 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(125): Cake\Controller\Controller->render()
+#4 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ProfessoresController))
+#5 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#6 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#7 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#8 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#9 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#10 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#11 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#13 C:\xampp\htdocs\map\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php(52): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#14 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): DebugKit\Middleware\DebugKitMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#15 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#16 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 C:\xampp\htdocs\map\webroot\index.php(37): Cake\Http\Server->run()
+#18 {main}
+
+
+2017-08-25 09:39:46 Error: [Cake\Routing\Exception\MissingRouteException] A route matching "XDEBUG_SESSION_START=netbeans-xdebug" could not be found.
+Exception Attributes: array (
+  'url' => 'XDEBUG_SESSION_START=netbeans-xdebug',
+)
+Request URL: XDEBUG_SESSION_START=netbeans-xdebug?XDEBUG_SESSION_START=netbeans-xdebug
+Stack Trace:
+#0 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Router.php(368): Cake\Routing\RouteCollection->parseRequest(Object(Cake\Http\ServerRequest))
+#1 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(48): Cake\Routing\Router::parseRequest(Object(Cake\Http\ServerRequest))
+#2 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#3 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#4 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#5 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#6 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#7 C:\xampp\htdocs\map\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php(52): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#8 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): DebugKit\Middleware\DebugKitMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#9 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#10 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#11 C:\xampp\htdocs\map\webroot\index.php(37): Cake\Http\Server->run()
+#12 {main}
+
+
+2017-08-25 09:39:54 Error: [ParseError] syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ',' or ')' in C:\xampp\htdocs\map\src\Template\Professores\index.ctp on line 28
+Request URL: /professores
+Stack Trace:
+#0 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\View\View.php(986): Cake\View\View->_evaluate('C:\\xampp\\htdocs...', Array)
+#1 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\View\View.php(610): Cake\View\View->_render('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Controller\Controller.php(623): Cake\View\View->render(NULL, NULL)
+#3 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(125): Cake\Controller\Controller->render()
+#4 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ProfessoresController))
+#5 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#6 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#7 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#8 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#9 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#10 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#11 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#13 C:\xampp\htdocs\map\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php(52): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#14 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): DebugKit\Middleware\DebugKitMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#15 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#16 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 C:\xampp\htdocs\map\webroot\index.php(37): Cake\Http\Server->run()
+#18 {main}
+
+
+2017-08-25 09:49:18 Error: [BadMethodCallException] Unknown finder method "status"
+Request URL: /professores
+Stack Trace:
+#0 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Query.php(1096): Cake\ORM\Table->callFinder('status', Object(Cake\ORM\Query), Array)
+#1 C:\xampp\htdocs\map\src\Template\Professores\index.ctp(28): Cake\ORM\Query->find('status')
+#2 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\View\View.php(1025): include('C:\\xampp\\htdocs...')
+#3 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\View\View.php(986): Cake\View\View->_evaluate('C:\\xampp\\htdocs...', Array)
+#4 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\View\View.php(610): Cake\View\View->_render('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Controller\Controller.php(623): Cake\View\View->render(NULL, NULL)
+#6 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(125): Cake\Controller\Controller->render()
+#7 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ProfessoresController))
+#8 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#9 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#11 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#12 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 C:\xampp\htdocs\map\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php(52): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): DebugKit\Middleware\DebugKitMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#20 C:\xampp\htdocs\map\webroot\index.php(37): Cake\Http\Server->run()
+#21 {main}
+
+
+2017-08-25 10:35:33 Error: [Error] Call to undefined method Cake\ORM\ResultSet::where() in C:\xampp\htdocs\map\src\Controller\ProfessoresController.php on line 31
+Request URL: /professores
+Stack Trace:
+#0 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Controller\Controller.php(440): App\Controller\ProfessoresController->index()
+#1 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#2 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ProfessoresController))
+#3 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#4 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#5 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#6 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#7 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#8 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#9 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#10 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#11 C:\xampp\htdocs\map\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php(52): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): DebugKit\Middleware\DebugKitMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#13 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#14 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 C:\xampp\htdocs\map\webroot\index.php(37): Cake\Http\Server->run()
+#16 {main}
+
+
+2017-08-25 10:40:58 Warning: Warning (512): Unable to emit headers. Headers sent in file=C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Error\Debugger.php line=822 in [C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 48]
+Request URL: /professores
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 153
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 105
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-08-25 10:40:58 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Error\Debugger.php:822) in [C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 148]
+Request URL: /professores
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 153
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE\src\Http\ResponseEmitter.php, line 148
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 105
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-08-25 10:40:58 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Error\Debugger.php:822) in [C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 181]
+Request URL: /professores
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 153
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 181
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 105
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-08-25 10:40:58 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Error\Debugger.php:822) in [C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ResponseEmitter.php, line 181]
+Request URL: /professores
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 153
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE\src\Http\ResponseEmitter.php, line 181
+Cake\Http\ResponseEmitter::emit() - CORE\src\Http\ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE\src\Http\Server.php, line 105
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2017-08-25 11:04:56 Error: [Cake\View\Exception\MissingTemplateException] Template file "ProfessoresEscolas\add.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'ProfessoresEscolas\\add.ctp',
+)
+Request URL: /professores-escolas/add/45547
+Referer URL: http://localhost/map/professores/view/45547
+Stack Trace:
+#0 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\View\View.php(606): Cake\View\View->_getViewFileName('ProfessoresEsco...')
+#1 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Controller\Controller.php(623): Cake\View\View->render(NULL, NULL)
+#2 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(125): Cake\Controller\Controller->render()
+#3 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\ProfessoresEscolasController))
+#4 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#5 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#6 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#7 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#8 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#9 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#10 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#11 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#12 C:\xampp\htdocs\map\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php(52): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#13 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): DebugKit\Middleware\DebugKitMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#14 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#16 C:\xampp\htdocs\map\webroot\index.php(37): Cake\Http\Server->run()
+#17 {main}
+
+
+2017-08-25 11:10:18 Error: [Error] Call to a member function fetchStatus() on boolean in C:\xampp\htdocs\map\src\Controller\EscolasController.php on line 24
+Request URL: /escolas
+Stack Trace:
+#0 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Controller\Controller.php(440): App\Controller\EscolasController->index()
+#1 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#2 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\EscolasController))
+#3 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#4 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#5 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#6 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#7 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#8 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#9 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#10 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#11 C:\xampp\htdocs\map\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php(52): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#12 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): DebugKit\Middleware\DebugKitMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#13 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#14 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 C:\xampp\htdocs\map\webroot\index.php(37): Cake\Http\Server->run()
+#16 {main}
+
+
+2017-08-25 11:13:39 Error: [ParseError] syntax error, unexpected '}' in C:\xampp\htdocs\map\src\Model\Table\EscolasTable.php on line 48
+Request URL: /escolas
+Stack Trace:
+#0 C:\xampp\htdocs\map\vendor\composer\ClassLoader.php(301): Composer\Autoload\includeFile('C:\\xampp\\htdocs...')
+#1 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Model\\Table...')
+#2 [internal function]: spl_autoload_call('App\\Model\\Table...')
+#3 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Core\App.php(152): class_exists('App\\Model\\Table...')
+#4 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Core\App.php(64): Cake\Core\App::_classExistsInBase('\\Model\\Table\\Es...', 'App')
+#5 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Locator\TableLocator.php(238): Cake\Core\App::className('Escolas', 'Model/Table', 'Table')
+#6 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Locator\TableLocator.php(193): Cake\ORM\Locator\TableLocator->_getClassName('Escolas', Array)
+#7 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Datasource\ModelAwareTrait.php(112): Cake\ORM\Locator\TableLocator->get('Escolas')
+#8 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Controller\Controller.php(358): Cake\Controller\Controller->loadModel('Escolas')
+#9 C:\xampp\htdocs\map\src\Controller\EscolasController.php(24): Cake\Controller\Controller->__get('Escolas')
+#10 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Controller\Controller.php(440): App\Controller\EscolasController->index()
+#11 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#12 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\EscolasController))
+#13 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#14 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#15 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#16 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#17 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#18 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#19 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#20 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#21 C:\xampp\htdocs\map\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php(52): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#22 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): DebugKit\Middleware\DebugKitMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#23 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#24 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#25 C:\xampp\htdocs\map\webroot\index.php(37): Cake\Http\Server->run()
+#26 {main}
+
+
+2017-08-25 16:32:38 Error: [InvalidArgumentException] Could not save id, it cannot be traversed
+Request URL: /escolas/add
+Referer URL: http://localhost/map/escolas/add
+Stack Trace:
+#0 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\AssociationCollection.php(260): Cake\ORM\Association\HasMany->saveAssociated(Object(App\Model\Entity\Escola), Array)
+#1 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\AssociationCollection.php(234): Cake\ORM\AssociationCollection->_save(Object(Cake\ORM\Association\HasMany), Object(App\Model\Entity\Escola), Array, Array)
+#2 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\AssociationCollection.php(199): Cake\ORM\AssociationCollection->_saveAssociations(Object(App\Model\Table\EscolasTable), Object(App\Model\Entity\Escola), Array, Array, true)
+#3 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1843): Cake\ORM\AssociationCollection->saveChildren(Object(App\Model\Table\EscolasTable), Object(App\Model\Entity\Escola), Array, Array)
+#4 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1816): Cake\ORM\Table->_onSaveSuccess(Object(App\Model\Entity\Escola), Object(ArrayObject))
+#5 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1723): Cake\ORM\Table->_processSave(Object(App\Model\Entity\Escola), Object(ArrayObject))
+#6 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1446): Cake\ORM\Table->Cake\ORM\{closure}()
+#7 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Database\Connection.php(678): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#8 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1447): Cake\Database\Connection->transactional(Object(Closure))
+#9 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1724): Cake\ORM\Table->_executeTransaction(Object(Closure), true)
+#10 C:\xampp\htdocs\map\src\Controller\EscolasController.php(76): Cake\ORM\Table->save(Object(App\Model\Entity\Escola))
+#11 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Controller\Controller.php(440): App\Controller\EscolasController->add()
+#12 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#13 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\EscolasController))
+#14 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\map\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php(52): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#23 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): DebugKit\Middleware\DebugKitMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#24 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#25 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#26 C:\xampp\htdocs\map\webroot\index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2017-08-25 16:33:53 Error: [InvalidArgumentException] Could not save id, it cannot be traversed
+Request URL: /escolas/add
+Referer URL: http://localhost/map/escolas/add
+Stack Trace:
+#0 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\AssociationCollection.php(260): Cake\ORM\Association\HasMany->saveAssociated(Object(App\Model\Entity\Escola), Array)
+#1 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\AssociationCollection.php(234): Cake\ORM\AssociationCollection->_save(Object(Cake\ORM\Association\HasMany), Object(App\Model\Entity\Escola), Array, Array)
+#2 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\AssociationCollection.php(199): Cake\ORM\AssociationCollection->_saveAssociations(Object(App\Model\Table\EscolasTable), Object(App\Model\Entity\Escola), Array, Array, true)
+#3 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1843): Cake\ORM\AssociationCollection->saveChildren(Object(App\Model\Table\EscolasTable), Object(App\Model\Entity\Escola), Array, Array)
+#4 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1816): Cake\ORM\Table->_onSaveSuccess(Object(App\Model\Entity\Escola), Object(ArrayObject))
+#5 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1723): Cake\ORM\Table->_processSave(Object(App\Model\Entity\Escola), Object(ArrayObject))
+#6 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1446): Cake\ORM\Table->Cake\ORM\{closure}()
+#7 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Database\Connection.php(678): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#8 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1447): Cake\Database\Connection->transactional(Object(Closure))
+#9 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1724): Cake\ORM\Table->_executeTransaction(Object(Closure), true)
+#10 C:\xampp\htdocs\map\src\Controller\EscolasController.php(76): Cake\ORM\Table->save(Object(App\Model\Entity\Escola))
+#11 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Controller\Controller.php(440): App\Controller\EscolasController->add()
+#12 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#13 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\EscolasController))
+#14 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\map\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php(52): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#23 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): DebugKit\Middleware\DebugKitMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#24 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#25 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#26 C:\xampp\htdocs\map\webroot\index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2017-08-25 16:36:00 Error: [InvalidArgumentException] Could not save id, it cannot be traversed
+Request URL: /escolas/add
+Referer URL: http://localhost/map/escolas/add
+Stack Trace:
+#0 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\AssociationCollection.php(260): Cake\ORM\Association\HasMany->saveAssociated(Object(App\Model\Entity\Escola), Array)
+#1 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\AssociationCollection.php(234): Cake\ORM\AssociationCollection->_save(Object(Cake\ORM\Association\HasMany), Object(App\Model\Entity\Escola), Array, Array)
+#2 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\AssociationCollection.php(199): Cake\ORM\AssociationCollection->_saveAssociations(Object(App\Model\Table\EscolasTable), Object(App\Model\Entity\Escola), Array, Array, true)
+#3 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1843): Cake\ORM\AssociationCollection->saveChildren(Object(App\Model\Table\EscolasTable), Object(App\Model\Entity\Escola), Array, Array)
+#4 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1816): Cake\ORM\Table->_onSaveSuccess(Object(App\Model\Entity\Escola), Object(ArrayObject))
+#5 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1723): Cake\ORM\Table->_processSave(Object(App\Model\Entity\Escola), Object(ArrayObject))
+#6 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1446): Cake\ORM\Table->Cake\ORM\{closure}()
+#7 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Database\Connection.php(678): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#8 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1447): Cake\Database\Connection->transactional(Object(Closure))
+#9 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1724): Cake\ORM\Table->_executeTransaction(Object(Closure), true)
+#10 C:\xampp\htdocs\map\src\Controller\EscolasController.php(77): Cake\ORM\Table->save(Object(App\Model\Entity\Escola))
+#11 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Controller\Controller.php(440): App\Controller\EscolasController->add()
+#12 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#13 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\EscolasController))
+#14 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\map\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php(52): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#23 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): DebugKit\Middleware\DebugKitMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#24 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#25 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#26 C:\xampp\htdocs\map\webroot\index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2017-08-25 16:41:52 Error: [InvalidArgumentException] Could not save id, it cannot be traversed
+Request URL: /escolas/add
+Referer URL: http://localhost/map/escolas/add
+Stack Trace:
+#0 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\AssociationCollection.php(260): Cake\ORM\Association\HasMany->saveAssociated(Object(App\Model\Entity\Escola), Array)
+#1 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\AssociationCollection.php(234): Cake\ORM\AssociationCollection->_save(Object(Cake\ORM\Association\HasMany), Object(App\Model\Entity\Escola), Array, Array)
+#2 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\AssociationCollection.php(199): Cake\ORM\AssociationCollection->_saveAssociations(Object(App\Model\Table\EscolasTable), Object(App\Model\Entity\Escola), Array, Array, true)
+#3 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1843): Cake\ORM\AssociationCollection->saveChildren(Object(App\Model\Table\EscolasTable), Object(App\Model\Entity\Escola), Array, Array)
+#4 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1816): Cake\ORM\Table->_onSaveSuccess(Object(App\Model\Entity\Escola), Object(ArrayObject))
+#5 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1723): Cake\ORM\Table->_processSave(Object(App\Model\Entity\Escola), Object(ArrayObject))
+#6 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1446): Cake\ORM\Table->Cake\ORM\{closure}()
+#7 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Database\Connection.php(678): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#8 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1447): Cake\Database\Connection->transactional(Object(Closure))
+#9 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1724): Cake\ORM\Table->_executeTransaction(Object(Closure), true)
+#10 C:\xampp\htdocs\map\src\Controller\EscolasController.php(77): Cake\ORM\Table->save(Object(App\Model\Entity\Escola))
+#11 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Controller\Controller.php(440): App\Controller\EscolasController->add()
+#12 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#13 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\EscolasController))
+#14 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\map\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php(52): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#23 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): DebugKit\Middleware\DebugKitMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#24 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#25 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#26 C:\xampp\htdocs\map\webroot\index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+
+2017-08-25 16:43:30 Error: [InvalidArgumentException] Could not save id, it cannot be traversed
+Request URL: /escolas/add
+Referer URL: http://localhost/map/escolas/add
+Stack Trace:
+#0 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\AssociationCollection.php(260): Cake\ORM\Association\HasMany->saveAssociated(Object(App\Model\Entity\Escola), Array)
+#1 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\AssociationCollection.php(234): Cake\ORM\AssociationCollection->_save(Object(Cake\ORM\Association\HasMany), Object(App\Model\Entity\Escola), Array, Array)
+#2 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\AssociationCollection.php(199): Cake\ORM\AssociationCollection->_saveAssociations(Object(App\Model\Table\EscolasTable), Object(App\Model\Entity\Escola), Array, Array, true)
+#3 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1843): Cake\ORM\AssociationCollection->saveChildren(Object(App\Model\Table\EscolasTable), Object(App\Model\Entity\Escola), Array, Array)
+#4 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1816): Cake\ORM\Table->_onSaveSuccess(Object(App\Model\Entity\Escola), Object(ArrayObject))
+#5 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1723): Cake\ORM\Table->_processSave(Object(App\Model\Entity\Escola), Object(ArrayObject))
+#6 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1446): Cake\ORM\Table->Cake\ORM\{closure}()
+#7 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Database\Connection.php(678): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#8 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1447): Cake\Database\Connection->transactional(Object(Closure))
+#9 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\ORM\Table.php(1724): Cake\ORM\Table->_executeTransaction(Object(Closure), true)
+#10 C:\xampp\htdocs\map\src\Controller\EscolasController.php(77): Cake\ORM\Table->save(Object(App\Model\Entity\Escola))
+#11 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Controller\Controller.php(440): App\Controller\EscolasController->add()
+#12 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(119): Cake\Controller\Controller->invokeAction()
+#13 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\ActionDispatcher.php(93): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\EscolasController))
+#14 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\BaseApplication.php(78): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#15 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#16 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\RoutingMiddleware.php(59): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#17 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#18 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Routing\Middleware\AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#19 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#20 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Error\Middleware\ErrorHandlerMiddleware.php(92): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#21 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): Cake\Error\Middleware\ErrorHandlerMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#22 C:\xampp\htdocs\map\vendor\cakephp\debug_kit\src\Middleware\DebugKitMiddleware.php(52): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#23 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(65): DebugKit\Middleware\DebugKitMiddleware->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response), Object(Cake\Http\Runner))
+#24 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Runner.php(51): Cake\Http\Runner->__invoke(Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#25 C:\xampp\htdocs\map\vendor\cakephp\cakephp\src\Http\Server.php(80): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Cake\Http\ServerRequest), Object(Cake\Http\Response))
+#26 C:\xampp\htdocs\map\webroot\index.php(37): Cake\Http\Server->run()
+#27 {main}
+
+

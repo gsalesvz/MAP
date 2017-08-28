@@ -21,8 +21,13 @@ class EscolasController extends AppController
      */
     public function index()
     {
-        $escolas = $this->paginate($this->Escolas);
+        // Busca o id do status inativo, para poder restringir escolas a serem exibidas
+        $statusInativo = $this->Escolas->fetchStatus(['status' => 'Inativo'])->first()->id;
 
+        // Busca todas as escolas que não estão inativas, e faz a paginação
+        $escolas = $this->paginate($this->Escolas->find('all')->where(['status !=' => $statusInativo]));
+
+        // Envia os dados para a View        
         $this->set(compact('escolas'));
         $this->set('_serialize', ['escolas']);
     }
@@ -36,12 +41,20 @@ class EscolasController extends AppController
      */
     public function view($id = null)
     {
-        $escola = $this->Escolas->get($id, [
-            'contain' => ['Professores']
-        ]);
+        // Busca a escola
+        $escola = $this->Escolas->get($id);
 
-        $this->set('escola', $escola);
-        $this->set('_serialize', ['escola']);
+        // Busca o nome do status desta escola, especificamente
+        $status = $this->Escolas->fetchStatusName($escola->status);
+
+        // Converte o tipo de dados de data do Cake para um tipo de fácil leitura para o usuário
+        if (isset($escola->fundacao)) {
+            $escola->fundacao = date('d/m/Y', strtotime($escola->fundacao));
+        }
+
+        // Envia os dados para a View
+        $this->set(compact('escola', 'status'));
+        $this->set('_serialize', ['escola', 'status']);
     }
 
     /**
@@ -54,9 +67,12 @@ class EscolasController extends AppController
         $escola = $this->Escolas->newEntity();
         if ($this->request->is('post')) {
             $escola = $this->Escolas->patchEntity($escola, $this->request->getData());
+
+            // Checa se há alguma informação no campo fundação e converte em tipo de dados do Cake
             if (isset($escola->fundacao)) {
                 $escola->fundacao = Time::createFromFormat('d/m/Y', $escola->fundacao);
             }
+
             if ($this->Escolas->save($escola)) {
                 $this->Flash->success(__('A escola foi salva.'));
 
@@ -64,6 +80,8 @@ class EscolasController extends AppController
             }
             $this->Flash->error(__('A escola não pôde ser salva. Por favor, tente novamente.'));
         }
+
+        // Envia dados para a View
         $this->set(compact('escola'));
         $this->set('_serialize', ['escola']);
     }
@@ -77,14 +95,19 @@ class EscolasController extends AppController
      */
     public function edit($id = null)
     {
-        $escola = $this->Escolas->get($id, [
-            'contain' => ['Professores']
-        ]);
+        $escola = $this->Escolas->get($id);
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $escola = $this->Escolas->patchEntity($escola, $this->request->getData());
+
+            // Checa se há alguma informação no campo fundação e converte em tipo de dados do Cake
             if (isset($escola->fundacao)) {
                 $escola->fundacao = Time::createFromFormat('d/m/Y', $escola->fundacao);
             }
+
+            // Atualiza o campo modificado
+            $escola->modificado = Time::now();
+
             if ($this->Escolas->save($escola)) {
                 $this->Flash->success(__('A escola foi salva.'));
 
@@ -92,6 +115,13 @@ class EscolasController extends AppController
             }
             $this->Flash->error(__('A escola não pôde ser salva. Por favor, tente novamente.'));
         }
+
+        // Converte o tipo de dados de data do Cake para um tipo de fácil leitura para o usuário
+        if (isset($escola->fundacao)) {
+            $escola->fundacao = date('d/m/Y', strtotime($escola->fundacao));
+        }
+
+        // Envia os dados para a View
         $this->set(compact('escola'));
         $this->set('_serialize', ['escola']);
     }
@@ -105,9 +135,12 @@ class EscolasController extends AppController
      */
     public function delete($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        $this->request->allowMethod(['post']);
         $escola = $this->Escolas->get($id);
-        if ($this->Escolas->delete($escola)) {
+
+        // Ao invés de propriamente deletar a escola, aqui se muda o Status no registro
+        $escola->status = $this->Escolas->fetchStatus(['status' => 'Inativo'])->first()->id;
+        if ($this->Escolas->save($escola)) {
             $this->Flash->success(__('A escola foi deletada.'));
         } else {
             $this->Flash->error(__('A escola não pôde ser deletada. Por favor, tente novamente.'));

@@ -20,9 +20,6 @@
                 <tr>
                     <th scope="col"><?= $this->Paginator->sort('nome') ?></th>
                     <th scope="col"><?= $this->Paginator->sort('fundacao') ?></th>
-                    <th scope="col"><?= $this->Paginator->sort('criado') ?></th>
-                    <th scope="col"><?= $this->Paginator->sort('modificado') ?></th>
-                    <th scope="col"><?= $this->Paginator->sort('status') ?></th>
                     <th scope="col" class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -30,10 +27,7 @@
                 <?php foreach ($escolas as $escola): ?>
                     <tr>
                         <td><?= h($escola->nome) ?></td>
-                        <td><?= h($escola->fundacao) ?></td>
-                        <td><?= h($escola->criado) ?></td>
-                        <td><?= h($escola->modificado) ?></td>
-                        <td><?= $this->Number->format($escola->status) ?></td>
+                        <td><?php if (isset($escola->fundacao)) {echo date('d/m/Y', strtotime($escola->fundacao)); } ?></td>
                         <td class="actions">
                             <?= $this->Html->link(__('Visualizar'), ['action' => 'view', $escola->id]) ?>
                             <?= $this->Html->link(__('Editar'), ['action' => 'edit', $escola->id]) ?>

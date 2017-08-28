@@ -45,8 +45,9 @@ class ProfessoresTable extends Table
 
         // Estabelece o relacionamento 1 para n com a tabela Status
         $this->hasMany('Status', [
-            'primaryKey' => 'id',
-            'propertyName' => 'id']);
+            'primaryKey' => 'status.id',
+            'propertyName' => 'status.id'
+            ]);
     }
 
     /**
@@ -120,7 +121,7 @@ class ProfessoresTable extends Table
         return $validator;
     }
 
-    // Método para buscar dados completos das escolas dentro do controller Professores
+    // Método para buscar dados completos das escolas dentro do controller
     public function fetchEscolas($conditions = null) {
         if (!isset($conditions))
             return $this->Escolas->find('all');
@@ -128,7 +129,7 @@ class ProfessoresTable extends Table
             return $this->Escolas->find('all')->where($conditions);
     }
 
-    // Método para buscar dados completos dos status dentro do controller Professores
+    // Método para buscar dados completos dos status dentro do controller
     public function fetchStatus($conditions = null) {
         if (!isset($conditions))
             return $this->Status->find('all');

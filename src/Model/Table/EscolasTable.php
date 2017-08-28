@@ -36,11 +36,18 @@ class EscolasTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
+        // Estabelece o relacionamento n para n com a tabela Professores
         $this->belongsToMany('Professores', [
-            'foreignKey' => 'escola_id',
-            'targetForeignKey' => 'professore_id',
+            'foreignKey' => 'escola',
+            'targetForeignKey' => 'professor',
             'joinTable' => 'professores_escolas'
-        ]);
+            ]);
+
+        // Estabelece o relacionamento 1 para n com a tabela Status
+        $this->hasMany('Status', [
+            'primaryKey' => 'status.id',
+            'propertyName' => 'status.id'
+            ]);
     }
 
     /**
@@ -85,5 +92,18 @@ class EscolasTable extends Table
             ->integer('status');
 
         return $validator;
+    }
+
+    // Método para buscar dados completos dos status dentro do controller
+    public function fetchStatus($conditions = null) {
+        if (!isset($conditions))
+            return $this->Status->find('all');
+        else
+            return $this->Status->find('all')->where($conditions);
+    }
+
+    // Método simples para buscar o nome do status, de acordo com o ID
+    public function fetchStatusName($idStatus) {
+        return $this->Status->get($idStatus)->status;
     }
 }
