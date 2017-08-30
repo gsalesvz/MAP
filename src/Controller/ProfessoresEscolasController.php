@@ -14,36 +14,6 @@ class ProfessoresEscolasController extends AppController
 {
 
     /**
-     * Index method
-     *
-     * @return \Cake\Http\Response|void
-     */
-    public function index()
-    {
-        $professoresEscolas = $this->paginate($this->ProfessoresEscolas);
-
-        $this->set(compact('professoresEscolas'));
-        $this->set('_serialize', ['professoresEscolas']);
-    }
-
-    /**
-     * View method
-     *
-     * @param string|null $id Professores Escola id.
-     * @return \Cake\Http\Response|void
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $professoresEscola = $this->ProfessoresEscolas->get($id, [
-            'contain' => []
-        ]);
-
-        $this->set('professoresEscola', $professoresEscola);
-        $this->set('_serialize', ['professoresEscola']);
-    }
-
-    /**
      * Add method
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.

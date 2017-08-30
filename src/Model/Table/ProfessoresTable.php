@@ -5,6 +5,7 @@ use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
+use Cake\I18n\Time;
 
 /**
  * Professores Model
@@ -38,8 +39,8 @@ class ProfessoresTable extends Table
 
         // Estabelece o relacionamento n para n com a tabela Escolas
         $this->belongsToMany('Escolas', [
-            'foreignKey' => 'professor',
-            'targetForeignKey' => 'escola',
+            'foreignKey' => 'professorid',
+            'targetForeignKey' => 'escolaid',
             'joinTable' => 'professores_escolas'
             ]);
 
@@ -47,6 +48,10 @@ class ProfessoresTable extends Table
         $this->hasMany('Status', [
             'primaryKey' => 'status.id',
             'propertyName' => 'status.id'
+            ]);
+
+        $this->hasMany('ProfessoresEscolas', [
+            'primaryKey' => 'id'
             ]);
     }
 
@@ -140,5 +145,43 @@ class ProfessoresTable extends Table
     // Método simples para buscar o nome do status, de acordo com o ID
     public function fetchStatusName($idStatus) {
         return $this->Status->get($idStatus)->status;
+    }
+
+    // Método para buscar as escolas do professor, na tabela professores_escolas
+    public function fetchEscolasProfessor($conditions = null) {
+        if (!isset($conditions))
+            return $this->ProfessoresEscolas->find('all');
+        else
+            return $this->ProfessoresEscolas->find('all')->where($conditions);
+    }
+
+    // Método para salvar escolas do professor
+    public function saveEscolas($rf, $escola) {
+        $novaEscola = $this->ProfessoresEscolas->find('all')->where(['professorid' => $rf, 'escolaid' => $escola])->first();
+        
+        // Se não encontrar nenhuma escola vinculada ao professor, executa esse trecho do código
+        if (!isset($novaEscola)) {
+            $novaEscola = $this->ProfessoresEscolas->newEntity();
+            $novaEscola->professorid = $rf;
+            $novaEscola->escolaid = $escola;
+
+            $this->ProfessoresEscolas->save($novaEscola);
+        }
+        // Se encontrar escola vinculada ao professor, mas ela estiver inativa, muda o status para ativo
+        elseif ($novaEscola->status == $this->fetchStatus(['status' => 'Inativo'])->first()->id) {
+            $novaEscola->status = $this->fetchStatus(['status' => 'Ativo'])->first()->id;
+            $novaEscola->modificado = Time::now();
+
+            $this->ProfessoresEscolas->save($novaEscola);
+        }
+    }
+
+    // Método para deletar escolas do professor
+    public function deleteEscolas($rf, $escola) {
+        $deletarEscola = $this->ProfessoresEscolas->find('all')->where(['professorid' => $rf, 'escolaid' => $escola])->first();
+        $deletarEscola->status = $this->fetchStatus(['status' => 'Inativo'])->first()->id;
+        $deletarEscola->modificado = Time::now();
+
+        $this->ProfessoresEscolas->save($deletarEscola);
     }
 }

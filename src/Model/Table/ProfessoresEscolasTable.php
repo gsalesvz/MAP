@@ -19,7 +19,7 @@ use Cake\Validation\Validator;
  */
 class ProfessoresEscolasTable extends Table
 {
-
+ 
     /**
      * Initialize method
      *
@@ -31,6 +31,10 @@ class ProfessoresEscolasTable extends Table
         parent::initialize($config);
 
         $this->setTable('professores_escolas');
+
+        $this->belongsTo('Professores', [
+            'primaryKey' => 'rf'
+            ]);
     }
 
     /**
@@ -41,15 +45,20 @@ class ProfessoresEscolasTable extends Table
      */
     public function validationDefault(Validator $validator)
     {
-        $validator
-            ->integer('professor')
-            ->requirePresence('professor', 'create')
-            ->notEmpty('professor');
 
         $validator
-            ->integer('escola')
-            ->requirePresence('escola', 'create')
-            ->notEmpty('escola');
+            ->integer('id')
+            ->notEmpty('id');
+
+        $validator
+            ->integer('professorid')
+            ->requirePresence('professorid', 'create')
+            ->notEmpty('professorid');
+
+        $validator
+            ->integer('escolaid')
+            ->requirePresence('escolaid', 'create')
+            ->notEmpty('escolaid');
 
         $validator
             ->dateTime('criado')
