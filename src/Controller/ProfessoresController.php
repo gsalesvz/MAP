@@ -49,13 +49,10 @@ class ProfessoresController extends AppController
         $status = $this->Professores->fetchStatusName($professor->status);
 
         // Converte o tipo de dados de data do Cake para um tipo de fácil leitura para o usuário
-        if (isset($professor->nascimento)) {
+        if (isset($professor->nascimento))
             $professor->nascimento = date('d/m/Y', strtotime($professor->nascimento));
-        }
-
-        if (isset($professor->iniciopg)) {
+        if (isset($professor->iniciopg))
             $professor->iniciopg = date('d/m/Y', strtotime($professor->iniciopg));
-        }
 
         // Envia os dados para a View
         $this->set(compact('professor','status'));
@@ -74,13 +71,10 @@ class ProfessoresController extends AppController
             $professor = $this->Professores->patchEntity($professor, $this->request->getData());
             
             // Checa se há alguma informação nos campos de nascimento e início na prefeitura e converte em tipo de dados do Cake
-            if (isset($professor->nascimento)) {
+            if (isset($professor->nascimento))
                 $professor->nascimento = Time::createFromFormat('d/m/Y', $professor->nascimento);
-            }
-
-            if (isset($professor->iniciopg)) {
+            if (isset($professor->iniciopg))
                 $professor->iniciopg = Time::createFromFormat('d/m/Y', $professor->iniciopg);
-            }
 
             // Aplica hash para a senha
             $professor->senha = Security::hash($professor->senha, 'sha256');
@@ -107,46 +101,76 @@ class ProfessoresController extends AppController
      */
     public function edit($id = null)
     {
-        $professor = $this->Professores->get($id);
+        $professor = $this->Professores->get($id, ['contain' => 'Escolas']);
+        $ativo = $this->Professores->fetchStatus(['status' => 'Ativo'])->first()->id;
+
         if ($this->request->is(['patch', 'post', 'put'])) {
             $professor = $this->Professores->patchEntity($professor, $this->request->getData());
             
             // Checa se há alguma informação nos campos de nascimento e início na prefeitura e converte em tipo de dados do Cake
-            if (isset($professor->nascimento)) {
+            if (isset($professor->nascimento))
                 $professor->nascimento = Time::createFromFormat('d/m/Y', $professor->nascimento);
-            }
-
-            if (isset($professor->iniciopg)) {
+            if (isset($professor->iniciopg)) 
                 $professor->iniciopg = Time::createFromFormat('d/m/Y', $professor->iniciopg);
-            }
 
             // Atualiza o campo modificado
             $professor->modificado = Time::now();
 
             if ($this->Professores->save($professor)) {
+                // Pega as escolas que foram selecionadas no campo do fomulário
+                $escolas = $this->request->data['professores_escolas'];
+
+                // Busca todas as escolas vinculadas ao professor que estejam ativas
+                $escolasProfessor = $this->Professores->fetchEscolasProfessor(['professorid' => $professor->rf, 'status' => $ativo]);
+
+                // Para cada escola vinculada ao professor, crio um array $registros para identificar quais eram as escolas antes da atualização
+                foreach ($escolasProfessor as $escolaProfessor)
+                    $registros[] = $escolaProfessor['escolaid'];
+
+                // Para cada escola marcada no formulário que seja diferente das escolas vinculadas no banco de dados, realiza o procedimento para salvar
+                if (is_array($escolas)) {
+                    foreach ($escolas as $escola) {
+                        $escola = (int)$escola;
+                        if (!isset($registros) || in_array($escola, $registros) === false)
+                            $this->Professores->saveEscolas($professor->rf, $escola);
+                    }
+                }
+
+                // Para cada escola vinculada no banco de dados anteriormente, compara com as escolas marcadas no formulário. O que estiver diferente será deletado no banco de dados
+                if (isset($registros)) {
+                    foreach ($registros as $registro) {
+                        if (!is_array($escolas))
+                            $this->Professores->deleteEscolas($professor->rf, $registro);
+                        elseif (in_array($registro, $escolas) === false)
+                            $this->Professores->deleteEscolas($professor->rf, $registro);
+                    }
+                }
+
                 $this->Flash->success(__('O professor foi salvo.'));
 
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('O professor não pôde ser salvo. Por favor, tente novamente.'));
         }
-        /*$escolas = $this->Professores->fetchEscolas();
-        foreach ($escolas as $escola) {
+
+        // Busca todas as escolas para montar o control com as opções de escolas que o professor está vinculado
+        $escolas = $this->Professores->fetchEscolas();
+        foreach ($escolas as $escola)
             $options[$escola->id] = $escola->nome;
-        }*/
+
+        // Busca quais são as escolas salvas do professor
+        foreach ($this->Professores->fetchEscolasProfessor(['status' => $ativo]) as $selecionado)
+            $selected[] = $selecionado->escolaid;
 
         // Converte o tipo de dados de data do Cake para um tipo de fácil leitura para o usuário
-        if (isset($professor->nascimento)) {
+        if (isset($professor->nascimento))
             $professor->nascimento = date('d/m/Y', strtotime($professor->nascimento));
-        }
-
-        if (isset($professor->iniciopg)) {
+        if (isset($professor->iniciopg))
             $professor->iniciopg = date('d/m/Y', strtotime($professor->iniciopg));
-        }
 
         // Envia os dados para a View
-        $this->set(compact('professor'));
-        $this->set('_serialize', ['professor']);
+        $this->set(compact('professor', 'options', 'selected'));
+        $this->set('_serialize', ['professor', 'options', 'selected']);
     }
 
     /**
@@ -163,11 +187,11 @@ class ProfessoresController extends AppController
 
         // Ao invés de propriamente deletar o professor, aqui se muda o Status no registro
         $professor->status = $this->Professores->fetchStatus(['status' => 'Inativo'])->first()->id;
-        if ($this->Professores->save($professor)) {
+
+        if ($this->Professores->save($professor))
             $this->Flash->success(__('O professor foi deletado.'));
-        } else {
+        else
             $this->Flash->error(__('O professor não pôde ser deletado. Por favor, tente novamente.'));
-        }
 
         return $this->redirect(['action' => 'index']);
     }

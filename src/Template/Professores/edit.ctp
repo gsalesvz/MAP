@@ -42,7 +42,10 @@
                     'Santa Catarina' => 'Santa Catarina', 'São Paulo' => 'São Paulo', 'Sergipe' => 'Sergipe',
                     'Tocantins' => 'Tocantins'
                     ]]);
-            // echo $this->Form->control('professores_escolas.escola', ['options' => $options, 'multiple' => 'multiple', 'type' => 'select', 'label' => 'Escolas']);
+            if (isset($selected))
+                echo $this->Form->control('professores_escolas', ['options' => $options, 'default' => $selected, 'multiple' => 'multiple', 'type' => 'select', 'label' => 'Escolas']);
+            else
+                echo $this->Form->control('professores_escolas', ['options' => $options, 'multiple' => 'multiple', 'type' => 'select', 'label' => 'Escolas']);
             ?>
         </fieldset>
         <?= $this->Form->button(__('Enviar')) ?>
